@@ -26,6 +26,51 @@
                         <?php echo " <span style='color:blue'>".$nama."</span>"; ?>
                     </h3>
                 </div>
+                <div>
+                    <button><a href="logout.php">Log Out</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="" class="container">
+        <div class="row">
+            <hr>
+            <div class="col-lg-4 col-lg-offset-4 col-md-10 col-md-offset-1 text-center">
+                <!-- <div class="well"> -->
+                <?php 
+                    $hostname = "localhost";
+                    $user = "root";
+                    $password = "";
+                    $database = "foodie";
+
+                    //Loadmore configuarion
+                    $resultsPerPage = 10;
+                    $bd = mysql_connect($hostname, $user, $password) or die("Failed to connect to database");
+                    mysql_select_db($database, $bd) or die("Database Not Found");
+
+                    $que=mysql_query("SELECT * FROM `PEMBELIAN` ORDER BY `WAKTU` DESC");
+                    
+                    if($que === FALSE) { 
+                        die(mysql_error()); 
+                    }
+                    
+                    $count = 0;
+                    while ($count < $resultsPerPage && $data = mysql_fetch_array($que)) {
+                        // if ($data['EMAILKASIR'] == $emailSession) {
+                            echo "<div class='well'>";
+                            echo "<strong>".($count+1)."</strong>";
+                            echo "<hr>";
+                            echo "Nomor nota : <span style='color:red'>".$data['NOMORNOTA']."</span>";
+                            echo "<br>Waktu : <strong>".$data['WAKTU']."</strong>";
+                            echo "<br>Supplier : <strong>".$data['SUPPLIER']."</strong>";
+                            echo "<br><br>Email staf : ".$data['EMAILSTAF'];
+                            echo "</div>";
+                            $count++;
+                        // }
+                    }
+                ?>
+                <!-- </div> -->
             </div>
         </div>
     </div>
