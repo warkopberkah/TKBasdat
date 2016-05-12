@@ -27,7 +27,9 @@
                     </h3>
                 </div>
                 <div>
-                    <button><a href="logout.php">Log Out</a></button>
+                    <form action = "logout.php">
+						<input type = "submit" value = "Log Out"></input>
+					</form>
                 </div>
             </div>
         </div>
