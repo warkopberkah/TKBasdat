@@ -80,7 +80,7 @@
                 </div>
 				<div id = "menubar">
 					<a href = "home_chef.php">Home</a><br>
-					<a href = "lihatmenu.php">Lihat Menu</a>
+					<a href = "lihat_menu.php">Lihat Menu</a>
 				</div>
             </div>
         </div>
